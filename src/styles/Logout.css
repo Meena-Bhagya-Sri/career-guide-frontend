@@ -1,0 +1,125 @@
+/* 🔥 TEXT STYLING */
+.logout-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  color: #60a5fa; /* highlight */
+}
+
+.logout-text {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+/* 🔥 MODAL CENTERING */
+.logout-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 OVERLAY */
+.logout-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 24, 43, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ✨ GLASS CARD */
+.logout-card {
+  width: 340px;
+  height: 200px;
+  padding: 28px 24px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+  text-align: center;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* 🔥 ACTION BUTTON CONTAINER */
+/* 🔥 ACTION BUTTON CONTAINER */
+.logout-actions {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* 🔥 BASE BUTTON (CTA STYLE) */
+.logout-actions button {
+  flex: 1;
+  max-width: 130px;          /* equal clean size */
+  height: 40px;              /* consistent height */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Cancel Button (secondary CTA) */
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5f5;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Logout Button (primary CTA 🔥) */
+.logout-btn {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  margin: 0 5.5px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+}
+
+/* Click effect */
+.logout-actions button:active {
+  transform: scale(0.96);
+}

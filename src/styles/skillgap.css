@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #0b1b33, #0a1630);
+}
+
+/* PAGE */
+.skill-gap-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* CARD */
+.skill-gap-card {
+  width: 100%;
+  max-width: 900px;
+  background: #1e2b3f;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  cursor: pointer;
+  color: #cfd8ff;
+  margin-bottom: 15px;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+.back-btn:hover {
+  color: #ffffff;
+}
+
+/* TITLES */
+.gap-title {
+  text-align: center;
+  color: #d6b7ff;
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.gap-subtitle {
+  text-align: center;
+  color: #00d9ff;
+  font-weight: 500;
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+
+/* SUMMARY */
+.gap-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.readiness {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.improvement {
+  color: #caa7ff;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-y: auto;
+  flex: 1;
+  border-radius: 10px;
+}
+
+.gap-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gap-table thead {
+  background: linear-gradient(90deg, #7a3cff, #5b2ad1);
+}
+
+.gap-table th {
+  padding: 12px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.gap-table td {
+  padding: 12px;
+  text-align: center;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px;
+}
+
+.gap-table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* STATUS COLORS */
+.status-bad {
+  color: #ff8a8a;
+  font-weight: 600;
+}
+
+.status-good {
+  color: #8cffc1;
+  font-weight: 600;
+}
+
+/* SCROLLBAR */
+.table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #6d5cff;
+  border-radius: 10px;
+}
+
+/* BUTTONS */
+.skill-gap-actions {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* Primary (View Roadmap) */
+.btn-primary {
+  background: linear-gradient(90deg, #7a3cff, #5b2ad1);
+  color: white;
+  width: auto;          /* prevents full stretch */
+  min-width: 300px;     /* compact size */
+  text-align: center;
+  flex: 0;              /* stops flex-grow */
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #6b33e6, #4f23c9);
+}
+
+/* Secondary (Back) */
+.btn-secondary {
+  background: #2a3447;
+  color: white;
+}
+.btn-secondary:hover {
+  background: #3b465c;
+  transform: translateY(-2px);
+}

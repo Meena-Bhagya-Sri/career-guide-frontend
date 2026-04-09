@@ -1,0 +1,210 @@
+.careers-section{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:25px;
+}
+
+/* header */
+
+.careers-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.section-title{
+  font-size:22px;
+  color:#38bdf8;
+}
+
+/* search */
+
+.careers-search{
+  margin-top:20px;
+  margin-bottom:25px;
+  padding:10px;
+  width:100%;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:#020617;
+  color:white;
+}
+
+/* button */
+
+.add-career-btn{
+  background:#2563eb;
+  border:none;
+  padding:8px 16px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+
+/* table */
+
+.careers-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#0f172a;
+}
+
+.careers-table th{
+  padding:14px;
+  text-align:left;
+  color:#38bdf8;
+}
+
+.careers-table td{
+  padding:14px;
+  color:#e2e8f0;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.careers-table tr:hover{
+  background:rgba(56,189,248,0.08);
+}
+
+/* career icon */
+
+.career-cell{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.career-icon{
+  width:32px;
+  height:32px;
+  border-radius:6px;
+  background:#2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.salary-range{
+  font-weight:600;
+  color:#22c55e;
+}
+
+/* actions */
+
+.action-buttons{
+  display:flex;
+  gap:12px;
+}
+
+.edit-icon{
+  cursor:pointer;
+  color:#38bdf8;
+}
+
+.delete-icon{
+  cursor:pointer;
+  color:#ef4444;
+}
+
+/* skeleton */
+
+.skeleton-row{
+  height:30px;
+  width:100%;
+  border-radius:6px;
+  background:linear-gradient(
+    90deg,
+    #1e293b 25%,
+    #334155 50%,
+    #1e293b 75%
+  );
+  background-size:200% 100%;
+  animation:skeleton 1.2s infinite linear;
+}
+
+@keyframes skeleton{
+  0%{background-position:200%}
+  100%{background-position:-200%}
+}
+
+/* pagination */
+
+.pagination{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.page-btn{
+  padding:6px 12px;
+  border:none;
+  border-radius:6px;
+  background:#1e293b;
+  color:white;
+}
+
+.page-btn.active{
+  background:#2563eb;
+}
+
+/* modal */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.45);
+}
+
+.modal-card{
+  width:420px;
+  padding:30px;
+  border-radius:14px;
+  background:#0f172a;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.modal-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.modal-input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:#020617;
+  color:white;
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:space-between;
+}
+
+.cancel-btn{
+  background:#475569;
+  border:none;
+  padding:8px 16px;
+  border-radius:6px;
+  color:white;
+}
+
+.confirm-btn{
+  background:#2563eb;
+  border:none;
+  padding:8px 16px;
+  border-radius:6px;
+  color:white;
+}

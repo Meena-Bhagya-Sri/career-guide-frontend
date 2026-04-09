@@ -1,0 +1,1954 @@
+/* ===================== ROOT THEME ===================== */
+:root {
+  --bg: #0f172a;
+  --card: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.08);
+  --text: #f9fafb;
+  --muted: #94a3b8;
+  --primary: #6366f1;
+}
+
+body.light {
+  --bg: #f8fafc;
+  --card: rgba(0,0,0,0.03);
+  --border: rgba(0,0,0,0.08);
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+}
+
+/* ===================== GLOBAL ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+/* ===================== APP LAYOUT ===================== */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content,
+.content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .side-link span {
+  display: none;
+}
+
+/* ===================== SIDEBAR LOGO ===================== */
+.sidebar-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-bar {
+  width: 4px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #22d3ee, #6366f1);
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.role-selector {
+  display: flex;
+  gap: 20px;
+  margin: 15px 0 20px 0;
+  justify-content: center;
+  font-size: 14px;
+  color: #f8f9fc;
+}
+
+.role-selector label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 2px solid #f5f6f9;   /* neat blue border */
+  border-radius: 8px;          /* rounded corners */
+  padding: 10px 10px;          /* spacing inside */
+  transition: all 0.2s ease;   /* smooth hover effect */
+  background-color: #845cd3;
+}
+
+.role-selector label:hover {
+  border-color: #879de5;       /* darker blue on hover */
+  background-color: #1c4865;   /* subtle background */
+}
+
+.role-selector input[type="radio"] {
+  accent-color: #e8eaed; 
+      /* modern browsers: radio color */
+}
+
+
+.menu-icon {
+  font-size: 22px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.menu-icon:hover {
+  color: var(--text);
+}
+
+/* ===================== SIDEBAR LINKS ===================== */
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.2s ease;
+}
+
+.side-link:hover {
+  background: rgba(99,102,241,0.08);
+}
+
+.side-link.active {
+  background: rgba(99,102,241,0.2);
+  color: var(--primary);
+}
+
+.logout {
+  margin-top: auto;
+}
+
+/* ===================== TOPBAR ===================== */
+.topbar {
+  height: 64px;
+  min-height: 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.top-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.top-link.active {
+  color: var(--primary);
+}
+
+.top-btn {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  font-size: 18px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+}
+
+/* ===================== GRID SYSTEM ===================== */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ===================== CARDS ===================== */
+.career-card,
+.salary-card,
+.auth-container,
+.roadmap-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+.career-card:hover,
+.roadmap-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.4);
+}
+
+/* ===================== CAREER CARD ===================== */
+.career-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  cursor: pointer;
+}
+
+.career-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+  color: var(--primary);
+}
+
+.career-title,
+.career-card h4,
+.career-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: auto;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.career-link {
+  margin-top: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.career-link:hover {
+  text-decoration: underline;
+}
+
+/* ===================== TEXT ===================== */
+.text-secondary {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.text-danger {
+  color: #f87171;
+}
+
+/* ===================== BACK LINK ===================== */
+.back-link {
+  cursor: pointer;
+  color: #60a5fa;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+/* ===================== ROADMAP ===================== */
+.roadmap-page {
+  padding: 30px;
+}
+
+.roadmap-title {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.roadmap-card {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.roadmap-card .arrow {
+  position: absolute;
+  right: 18px;
+  color: var(--muted);
+}
+
+.roadmap-card.create {
+  border: 1px dashed rgba(255,255,255,0.2);
+  color: var(--muted);
+  text-align: center;
+}
+
+.roadmap-card.create:hover {
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+/* ===================== BUTTONS ===================== */
+.btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: #a5b4fc;
+  border: 1px solid rgba(165,180,252,0.4);
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  color: #cbd5f5;
+  border: 1px solid rgba(203,213,245,0.4);
+}
+
+/* ===================== RESOURCES ===================== */
+.resource-type {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.resource-video {
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+}
+
+.resource-course {
+  background: rgba(34,197,94,0.15);
+  color: #4ade80;
+}
+
+.resource-article {
+  background: rgba(251,191,36,0.18);
+  color: #facc15;
+}
+
+.resource-website {
+  background: rgba(56,189,248,0.18);
+  color: #38bdf8;
+}
+
+/* ===== Sidebar primary links (safe enhancement) ===== */
+
+.dashboard-link.active,
+.paths-link.active,
+.resources-link.active,
+.profile-link.active {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,0.28),
+    rgba(139,92,246,0.28)
+  );
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+}
+
+
+/* ================= LIGHT MODE SUPPORT ================= */
+
+body.light .logout-modal {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body.light .logout-modal h3 {
+  color: #0f172a;
+}
+
+body.light .logout-modal p {
+  color: #475569;
+}
+
+body.light .logout-cancel {
+  color: #334155;
+  border-color: rgba(51, 65, 85, 0.25);
+}
+
+body.light .logout-cancel:hover {
+  background: rgba(51, 65, 85, 0.08);
+}
+/* ===================== STAGE BUTTONS (TOP) ===================== */
+.stage-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.stage-tab {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(165,180,252,0.4);
+  background: transparent;
+  color: #a5b4fc;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.stage-tab:hover {
+  background: rgba(99,102,241,0.15);
+}
+
+.stage-tab.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border-color: transparent;
+}
+
+/* ===================== STAGE CARD (REDUCED SIZE) ===================== */
+.stage-card {
+  max-width: 520px;     /* 👈 reduced width */
+  padding: 18px 20px;  /* 👈 compact padding */
+  margin-top: 14px;
+}
+
+/* Title */
+.stage-card h5 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* Description */
+.stage-card p {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ===================== SKILLS ===================== */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.skill-chip {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(99,102,241,0.18);
+  color: #c7d2fe;
+  border: 1px solid rgba(99,102,241,0.35);
+}
+
+/* ===================== STAGE TABS ===================== */
+.stage-tabs {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.stage-tab {
+  padding: 7px 16px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(165, 180, 252, 0.4);
+  background: transparent;
+  color: #a5b4fc;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.stage-tab:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.stage-tab.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* ===================== STAGE CARD (CENTERED + SPACING) ===================== */
+.stage-card {
+  max-width: 620px;           /* reduced width */
+  width: 100%;
+  padding: 28px 32px;         /* more inner space */
+  margin-top: 30px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Title */
+.stage-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.stage-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+/* ===================== SKILLS ===================== */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.skill-chip {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.18);
+  color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  white-space: nowrap;
+}
+
+/* ===================== PREVIOUS / NEXT NAVIGATION ===================== */
+.stage-navigation {
+  display: flex;
+  justify-content: space-between; /* left & right */
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Previous button */
+.btn-prev {
+  background: transparent;
+  color: #cbd5f5;
+  border: 1px solid rgba(203, 213, 245, 0.4);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Next button */
+.btn-next {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Disabled state */
+.stage-navigation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ===================== CONTENT SPACING ===================== */
+.content {
+  padding: 40px 60px;
+}
+
+/* ===================== BACK LINK SPACING ===================== */
+.back-link {
+  margin-bottom: 28px;
+}
+
+/* ===================== LIGHT MODE FIXES ===================== */
+body.light {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Text */
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5,
+body.light h6 {
+  color: #0f172a;
+}
+
+body.light .text-secondary {
+  color: #475569;
+}
+
+/* ===================== CARDS ===================== */
+body.light .career-card,
+body.light .stage-card,
+body.light .profile-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ===================== STAGE TABS ===================== */
+body.light .stage-tab {
+  color: #1e293b;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+}
+
+body.light .stage-tab.active {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+}
+
+/* ===================== SKILLS ===================== */
+body.light .skill-chip {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e293b;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+}
+
+/* ===================== BUTTONS ===================== */
+body.light .btn-outline-primary {
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+body.light .btn-outline-secondary {
+  color: #334155;
+  border-color: rgba(51, 65, 85, 0.35);
+}
+
+body.light .btn-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+}
+
+/* ===================== BACK LINK ===================== */
+body.light .back-link {
+  color: #2563eb;
+}
+
+/* ===================== CAREER PATH CARDS (REDUCED SIZE) ===================== */
+.career-card {
+  min-height: 150px;          /* was 180px */
+  padding: 16px;              /* reduced padding */
+  border-radius: 14px;        /* slightly smaller curve */
+}
+
+/* Title */
+.career-card h4 {
+  font-size: 15px;            /* smaller title */
+  margin-bottom: 6px;
+}
+
+/* Description */
+.career-card p {
+  font-size: 13px;            /* smaller text */
+  line-height: 1.4;
+}
+
+/* Grid spacing tighter */
+.row {
+  gap: 16px;                  /* reduced gap */
+}
+
+/* ===================================Profile============================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top, #4c1d95, #020617);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+/* Glass Card */
+.glass {
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: left;
+}
+
+/* Stepper */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+}
+
+.circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 6px;
+}
+
+.circle.active {
+  background: #7c3aed;
+  border-color: #7c3aed;
+}
+
+/* Form */
+label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgb(241, 238, 238);
+  appearance: none; /* important */
+}
+
+/* placeholder */
+input::placeholder {
+  color: #bbb;
+}
+
+/* 🔥 FIX: dropdown options */
+select option {
+  background: #f1f2f5;   /* dark background */
+  color: #101010;        /* light text */
+}
+
+/* 🔥 FIX: selected value (Windows issue) */
+select:focus {
+  color: rgb(241, 238, 238);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Buttons */
+button {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background: #7c3aed;
+  color: white;
+  margin-top: 20px;
+}
+
+.secondary {
+  background: rgba(255,255,255,0.15);
+}
+
+.success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+.form-space {
+  height: 16px;
+}
+
+.section-space {
+  height: 28px;
+}
+
+/* ============================= */
+/* EDUCATION FORM SPACING */
+/* ============================= */
+
+/* Space above education dropdown */
+.glass select {
+  margin-top: 10px;
+}
+
+/* Space between dropdown and inputs */
+.glass select + .spacer-sm,
+.glass select + input {
+  margin-top: 14px;
+}
+
+/* Consistent spacing for education inputs */
+.glass input {
+  margin-top: 12px;
+}
+
+/* Extra breathing room between education sections */
+.spacer {
+  height: 22px;
+}
+
+.spacer-sm {
+  height: 14px;
+}
+
+/* ============================= */
+/* SELECT (DROPDOWN) FIX */
+/* ============================= */
+
+select {
+  width: 100%;
+  padding: 12px 44px 12px 14px; /* space for arrow */
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;              /* selected value visible */
+  font-size: 14px;
+  cursor: pointer;
+
+  /* remove default styles */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* custom arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 7.5L10 12l4.5-4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+/* Placeholder option (Select education level) */
+select option[value=""] {
+  color: #bbb;
+}
+
+/* Dropdown list options */
+select option {
+  color: #111; /* readable in dropdown list */
+}
+
+/* Focus state */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.45);
+}
+
+/* ================= INTERESTS ================= */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 14px;
+}
+
+.interest-pill {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.interest-pill:hover {
+  background: rgba(124, 58, 237, 0.25);
+  border-color: #7c3aed;
+}
+
+/* ACTIVE (SELECTED) */
+.interest-pill.active {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  border-color: transparent;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.6);
+  transform: translateY(-1px);
+}
+
+
+/* ============================= */
+/* SKILL / INTEREST BAR FIX */
+/* ============================= */
+
+.interest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Skill / Interest pill */
+.interest-pill {
+  min-width: 140px;              /* ✅ MINIMUM BAR SIZE */
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+
+  display: flex;                /* center text */
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+/* Active (selected) skill */
+.interest-pill.active {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border-color: #8b5cf6;
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.45);
+}
+
+/* Hover */
+.interest-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .interest-pill {
+    min-width: 110px;
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+}
+
+
+/* =======================
+   GLOBAL RESET
+======================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e1b4b, #020617);
+  color: #e5e7eb;
+}
+
+/* =======================
+   MAIN CONTAINER
+======================= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* =======================
+   HEADINGS
+======================= */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #9ca3af;
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+/* =======================
+   GLASS CARD
+======================= */
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* =======================
+   DASHBOARD GRID
+======================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* =======================
+   STAT CARDS
+======================= */
+.dashboard-grid .glass h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.dashboard-grid .glass h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* =======================
+   PREDICTION CARD
+======================= */
+.glass h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.glass p {
+  margin: 0;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.glass h2 {
+  margin: 12px 0 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* =======================
+   PROGRESS BAR
+======================= */
+.progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.glass span {
+  font-size: 14px;
+  color: #67e8f9;
+  font-weight: 500;
+}
+
+/* =====================================================
+   CAREER DETAILS PAGE – CARD LAYOUT
+   ===================================================== */
+
+/* Container alignment */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Page title */
+.container h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.container .subtitle {
+  font-size: 15px;
+  color: #9ca3af;
+  margin-bottom: 48px; /* more space before cards */
+}
+
+/* =====================================================
+   GRID – CENTERED WITH MORE GAP
+   ===================================================== */
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 40px;                /* 👈 more gap */
+  justify-content: center;  /* 👈 center grid */
+  align-items: stretch;
+}
+
+/* =====================================================
+   CAREER CARD – MEDIUM SIZE
+   ===================================================== */
+
+.career-card {
+  min-height: 200px;        /* 👈 medium size */
+  padding: 28px 26px;       /* 👈 increased padding */
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Title inside card */
+.career-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.career-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #9ca3af;
+  margin-bottom: 22px;
+}
+
+/* Open link */
+.career-card .link-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+/* Hover effect */
+.career-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  border-color: rgba(99, 102, 241, 0.6);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .career-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .career-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .career-card {
+    min-height: 180px;
+  }
+}
+
+/* =====================================================
+   DASHBOARD – HEADER ABOVE GRID (SAFE FIX)
+   ===================================================== */
+
+/* =====================================================
+   DASHBOARD – CAREER CARD TITLE (MEDIUM SIZE ONLY)
+   ===================================================== */
+
+/* Scope ONLY dashboard career cards */
+.dashboard-page .career-card .career-title,
+.dashboard-page .career-card h4 {
+  font-size: 17px;        /* 👈 medium size */
+  font-weight: 600;       /* balanced (not too bold) */
+  line-height: 1.35;
+}
+
+
+/* Scope ONLY dashboard */
+.dashboard-page .career-page {
+  display: flex;
+  flex-direction: column;   /* 👈 stack header + grid */
+  align-items: flex-start;
+}
+
+/* Header block spacing */
+.dashboard-page .career-page > h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* ===== SUBTITLE ===== */
+.dashboard-page .career-page > b {
+  display: block;
+  font-weight: 400;
+  font-size: 10px;          /* 👈 medium */
+  color: #9ca3af;
+  margin-bottom: 36px;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   GRID – FORCE 4 BOXES PER ROW
+   ===================================================== */
+
+.dashboard-page .career-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr)); /* 👈 4 boxes */
+  gap: 28px;
+  width: 100%;
+}
+
+
+/* Ensure grid starts BELOW header */
+.dashboard-page .career-grid {
+  margin-top: 0;            /* no overlap */
+}
+
+
+/* =====================================================
+   SKILL INPUT PAGE (SAFE – DOES NOT AFFECT OTHER PAGES)
+   ===================================================== */
+
+.skill-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px 80px;
+  text-align: center;
+}
+
+/* Heading */
+.skill-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #c7d2fe;
+  margin-bottom: 6px;
+}
+
+/* Subheading */
+.skill-subtext {
+  font-size: 15px;
+  color: #67e8f9;
+  margin-bottom: 48px;
+}
+
+/* =====================================================
+   GRID LAYOUT
+   ===================================================== */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 28px;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+
+/* =====================================================
+   SKILL CARD
+   ===================================================== */
+
+.skill-card {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  padding: 22px 20px 18px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Skill name */
+.skill-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* =====================================================
+   SKILL SLIDER – VALUE BASED FILL (SECOND IMAGE STYLE)
+   ===================================================== */
+
+.skill-slider {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  accent-color: #38bdf8; /* 👈 key fix (fills till thumb) */
+  background: transparent; /* remove full gradient */
+}
+
+/* Remove old webkit background if any */
+.skill-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35); /* unfilled track */
+}
+
+/* Thumb */
+.skill-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #22d3ee;
+  border-radius: 50%;
+  border: 3px solid #020617;
+  margin-top: -6px;
+  cursor: pointer;
+}
+
+/* Firefox */
+.skill-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+}
+
+.skill-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #22d3ee;
+  border-radius: 50%;
+  border: 3px solid #020617;
+  cursor: pointer;
+}
+
+
+/* Level text */
+.skill-level {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a5b4fc;
+  text-align: right;
+}
+
+/* =====================================================
+   SAVE BUTTON
+   ===================================================== */
+
+.skill-page .btn-primary {
+  padding: 12px 34px;
+  font-size: 15px;
+  border-radius: 999px;
+  margin-top: 20px;
+}
+
+/* =====================================================
+   RESPONSIVE (ONLY THIS PAGE)
+   ===================================================== */
+
+@media (max-width: 1200px) {
+  .skill-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-page {
+    padding: 40px 20px 60px;
+  }
+}
+
+
+/* =====================================================
+   CAREER PREDICTION PAGE (ISOLATED & SAFE)
+   Applies ONLY when wrapped in .career-page
+   ===================================================== */
+
+.career-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+/* Card – scoped ONLY to career prediction page */
+.career-page > .career-card {
+  max-width: 760px;
+  width: 100%;
+  padding: 48px 56px;
+  border-radius: 20px;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* Heading */
+.career-page .career-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #c7d2fe;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Subtext */
+.career-page .career-subtext {
+  font-size: 15px;
+  color: #67e8f9;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Career title */
+.career-page .career-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Description list */
+.career-page .career-description {
+  margin: 0 auto 20px;
+  padding-left: 22px;
+  max-width: 520px;
+  color: #c7d2fe;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Salary text */
+.career-page .career-salary {
+  font-size: 15px;
+  font-weight: 600;
+  color: #22d3ee;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* Analyze Skill Gap button */
+.career-page .btn-secondary {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 36px;
+  font-size: 15px;
+  border-radius: 999px;
+}
+
+/* =====================================================
+   SKILL GAP PAGE (SAFE – NO GLOBAL EFFECT)
+   ===================================================== */
+
+/* Page wrapper */
+.skillgap-page {
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Back link (uses existing .back-link styling safely) */
+.skillgap-page .back-link {
+  margin-bottom: 22px;
+}
+
+/* Main card */
+.skillgap-page .skillgap-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 36px 40px;
+  border-radius: 20px;
+  background: rgba(30, 41, 59, 0.92);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* Heading */
+.skillgap-page .skillgap-heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #c7d2fe;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* Subheading */
+.skillgap-page .skillgap-subtext {
+  font-size: 15px;
+  color: #67e8f9;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* Summary row */
+.skillgap-page .skillgap-summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: #e5e7eb;
+  margin-bottom: 22px;
+}
+
+/* Table */
+.skillgap-page .skillgap-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* Table header */
+.skillgap-page .skillgap-table thead {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+}
+
+.skillgap-page .skillgap-table th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Table rows */
+.skillgap-page .skillgap-table td {
+  padding: 12px;
+  font-size: 14px;
+  color: #e5e7eb;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hover effect */
+.skillgap-page .skillgap-table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* Status colors */
+.skillgap-page .status-good {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.skillgap-page .status-bad {
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* =====================================================
+   RESPONSIVE (SKILL GAP ONLY)
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .skillgap-page {
+    padding: 60px 20px;
+  }
+
+  .skillgap-page .skillgap-card {
+    padding: 28px 22px;
+  }
+
+  .skillgap-page .skillgap-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/*================================Profile image================================================*/
+
+/* ============================= */
+/* PROFILE AVATAR */
+/* ============================= */
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 12px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.45);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure alignment */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===================== EXTENDED LIGHT THEME FIXES ===================== */
+/* Safely added below to ensure clear visibility without touching your original structure */
+
+body.light .glass {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light .glass h2, 
+body.light .glass h3, 
+body.light .glass h4, 
+body.light .glass p {
+  color: #0f172a;
+}
+
+body.light input, 
+body.light select {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+body.light input::placeholder {
+  color: #94a3b8;
+}
+
+body.light select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+body.light .interest-pill {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+body.light .interest-pill.active {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.light .skill-card,
+body.light .career-page > .career-card,
+body.light .skillgap-page .skillgap-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light .skill-label,
+body.light .career-heading,
+body.light .career-title,
+body.light .skillgap-heading,
+body.light .dashboard-page .career-page > h2,
+body.light .skill-heading {
+  color: #0f172a;
+}
+
+body.light .skill-subtext,
+body.light .career-subtext,
+body.light .career-description,
+body.light .skillgap-subtext {
+  color: #475569;
+}
+
+body.light .skillgap-summary,
+body.light .stepper,
+body.light label {
+  color: #475569;
+}
+
+body.light .skillgap-table td {
+  color: #334155;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light .skillgap-table th {
+  color: #ffffff;
+}
+
+body.light .circle {
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.light .circle.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+body.light .career-page .career-description {
+  color: #475569;
+}
+
+/* Fix visibility of secondary buttons (like edit profile) and the previous button in light theme */
+body.light .secondary,
+body.light .btn-prev {
+  background: #e2e8f0;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+body.light .secondary:hover,
+body.light .btn-prev:hover {
+  background: #cbd5e1;
+}
+
+
+/* =========================================================================
+   ROADMAP / STAGE CARD AGGRESSIVE LIGHT MODE FIX
+   Overrides nested Tailwind utility classes (bg-slate-900, text-white, etc.)
+========================================================================= */
+
+/* Target any link, button, or common dark Tailwind background block inside the stage card */
+body.light .stage-card a,
+body.light .stage-card [class*="bg-slate-"],
+body.light .stage-card [class*="bg-gray-"],
+body.light .stage-card [class*="bg-zinc-"],
+body.light .stage-card [class*="bg-indigo-9"],
+body.light .stage-card [class*="bg-[#"] {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Force all text and icons inside the stage card to be dark in light mode */
+body.light .stage-card,
+body.light .stage-card h1,
+body.light .stage-card h2,
+body.light .stage-card h3,
+body.light .stage-card h4,
+body.light .stage-card h5,
+body.light .stage-card h6,
+body.light .stage-card span,
+body.light .stage-card div,
+body.light .stage-card a,
+body.light .stage-card svg,
+body.light .stage-card i {
+  color: #0f172a !important;
+}
+
+/* Keep standard descriptions slightly muted */
+body.light .stage-card p {
+  color: #475569 !important;
+}
+
+/* Explicitly PROTECT the Skill Chips so they don't lose their specific light blue style */
+body.light .stage-card .skill-chip,
+body.light .stage-card .skill-chip * {
+  background-color: rgba(37, 99, 235, 0.12) !important;
+  color: #1e293b !important;
+  border-color: rgba(37, 99, 235, 0.35) !important;
+}
+/* =====================================================
+   CENTER PREDICT CAREER CARDS
+   ===================================================== */
+
+.dashboard-page .career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 280px); /* two cards fixed width */
+  justify-content: center;                 /* center horizontally */
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Ensure parent aligns content center */
+.dashboard-page .career-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* =====================================================
+   PREDICT CAREER PAGE – CENTER CARDS
+   ===================================================== */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Title */
+.container h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.container .subtitle {
+  color: #9ca3af;
+  font-size: 15px;
+  margin-bottom: 48px;
+}
+
+/* Grid container */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 320px); /* two fixed cards */
+  justify-content: center; /* centers the cards */
+  gap: 40px;
+}
+
+/* Card styling */
+.career-card {
+  padding: 28px 26px;
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Title inside card */
+.career-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Description */
+.career-card p {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+/* Link text */
+.link-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+/* Hover effect */
+.career-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}

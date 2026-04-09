@@ -1,0 +1,135 @@
+/* =====================================================
+   ABOUT PAGE LAYOUT
+   ===================================================== */
+
+.about-page {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Container */
+
+.about-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* =====================================================
+   LIGHT MODE → BLACK TEXT
+   ===================================================== */
+
+.about-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #000000;
+}
+
+.about-intro {
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 36px;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+/* Glass card */
+
+.about-card {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 36px 40px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* Paragraph */
+
+.about-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+/* Mission */
+
+.about-mission-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.about-mission {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.about-closing {
+  margin-top: 22px;
+  font-style: italic;
+  font-size: 14px;
+  color: #000000;
+}
+
+/* =====================================================
+   DARK MODE → WHITE TEXT
+   ===================================================== */
+
+.dark .about-title {
+  color: #ffffff;
+}
+
+.dark .about-intro {
+  color: #ffffff;
+}
+
+.dark .about-card {
+  background: #0a0617; /* keeping your design */
+  border-radius: 20px;
+  padding: 36px 40px;
+  /* border: 1px solid #e5e7eb; */
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
+}
+
+/* Dark mode paragraph text */
+
+.dark .about-card p {
+  color: #ffffff;
+}
+
+.dark .about-mission-title {
+  color: #ffffff;
+}
+
+.dark .about-mission {
+  color: #ffffff;
+}
+
+.dark .about-closing {
+  color: #ffffff;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width:768px) {
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-card {
+    padding: 28px 24px;
+  }
+
+}

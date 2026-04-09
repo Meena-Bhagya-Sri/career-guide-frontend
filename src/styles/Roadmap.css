@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #0b1b33, #0a1630);
+  color: #e5e7eb;
+}
+
+/* PAGE */
+.roadmap-page {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1e2b3f;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* MAIN TITLE */
+.roadmap-page h1 {
+  text-align: center;
+  color: #d6b7ff;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* STAGE CARD */
+.roadmap-stage {
+  background: #2a3447;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.roadmap-stage:hover {
+  transform: translateY(-3px);
+}
+
+/* STAGE TITLE */
+.roadmap-stage h2 {
+  color: #00d9ff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* STAGE TITLE LINK */
+.stage-link {
+  text-decoration: none;
+}
+
+/* DESCRIPTION */
+.roadmap-stage p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #cfd8ff;
+}
+
+/* RESOURCE LIST */
+.roadmap-stage ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.roadmap-stage li {
+  margin-bottom: 10px;
+}
+
+.roadmap-stage a {
+  color: #7a3cff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.roadmap-stage a:hover {
+  color: #b18aff;
+  text-decoration: underline;
+}
+
+.no-resource {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Loading */
+.loading {
+  padding: 40px;
+  text-align: center;
+}
