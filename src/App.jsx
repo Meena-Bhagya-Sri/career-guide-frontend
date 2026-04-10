@@ -13,7 +13,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 /* ===================== USER PAGES ===================== */
 import Profile from "./pages/Profile";
 import ProfileDashboard from "./pages/ProfileDashboard";
-import Prediction from "./pages/prediction"; // ✅ ADDED
+import Prediction from "./pages/Prediction"; 
 import History from "./pages/History";
 
 /* ===================== LAYOUT ===================== */

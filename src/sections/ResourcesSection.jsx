@@ -40,13 +40,13 @@ function ResourcesSection() {
   }, []);
 
   const deleteResource = (id) => {
-    fetch(`http://localhost:5000/resources/${id}`, { method: "DELETE" })
+    fetch(`${import.meta.env.VITE_API_URL}/resources/${id}`, { method: "DELETE" })
       .then(() => fetchResources());
       toast.success("Deleted Resource");
   };
 
   const addResource = () => {
-    fetch("http://localhost:5000/resources", {
+    fetch(`${import.meta.env.VITE_API_URL}/resources`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newResource)
@@ -59,7 +59,7 @@ function ResourcesSection() {
   };
 
   const updateResource = () => {
-    fetch(`http://localhost:5000/resources/${selectedResource.id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/resources/${selectedResource.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedResource)

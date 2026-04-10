@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Layout.css";
-
+import API from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -47,7 +47,7 @@ export default function Profile() {
       }
 
       try {
-        const res = await fetch("http://localhost:5000/academic-profile/", {
+        const res = await API.get("/academic-profile/", {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -146,12 +146,8 @@ export default function Profile() {
         interests: cleanedInterests
       };
 
-      const res = await fetch("http://localhost:5000/academic-profile/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        },
+      const res = await API.post("/academic-profile/add", {
+       
         body: JSON.stringify(payload)
       });
 

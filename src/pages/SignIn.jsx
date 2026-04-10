@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { scheduleSilentRefresh } from "../utils/silentRefresh";
 import "../styles/Auth.css";
 import bgImage from "../assets/image 1.png";
+import plainAPI from "axios";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,11 +36,8 @@ export default function SignIn() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await plainAPI.post("/auth/login", {
+     
         body: JSON.stringify({
           email,
           password,
