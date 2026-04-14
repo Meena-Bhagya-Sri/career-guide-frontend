@@ -34,11 +34,11 @@ const handleLogin = async (e) => {
 
       const response = await plainAPI.post(
       "/auth/login", // ⚠️ change to /api/auth/login if needed
-      {
-        email,
-        password,
-        role,
-      },
+      JSON.stringify({
+    email,
+    password,
+    role,
+  }),
       {
         headers: {
           "Content-Type": "application/json", // ✅ THIS FIXES 415
