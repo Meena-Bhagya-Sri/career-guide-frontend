@@ -5,10 +5,10 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import {toast} from "react-toastify";
 import PasswordStrength from "../components/PasswordStrength";
-import bgImage from "../assets/image 1.png";
+import bgImage from "../assets/image1.png";
 import "../styles/Auth.css";
 import { plainAPI } from "../api/axios";
-import {toast} from "react-toastify";
+
 export default function SignUp() {
 
   const navigate = useNavigate();

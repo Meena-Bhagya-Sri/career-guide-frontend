@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import authBg from "../assets/image 1.png";
+import authBg from "../assets/image1.png";
 import "../styles/Auth.css";
 import {toast} from "react-toastify";
 function ForgotPassword() {

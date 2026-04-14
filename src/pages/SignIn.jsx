@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { scheduleSilentRefresh } from "../utils/silentRefresh";
 import "../styles/Auth.css";
-import bgImage from "../assets/image 1.png";
+import bgImage from "../assets/image1.png";
 import { plainAPI } from "../api/axios"; 
 
 export default function SignIn() {
