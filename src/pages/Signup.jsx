@@ -8,6 +8,7 @@ import PasswordStrength from "../components/PasswordStrength";
 import bgImage from "../assets/image 1.png";
 import "../styles/Auth.css";
 import { plainAPI } from "../api/axios";
+import {toast} from "react-toastify";
 export default function SignUp() {
 
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ localStorage.setItem("refresh_token", data.refresh_token);
 
     }
     catch{
-      alert("Server error. Try again.");
+      toast.error("Server error. Try again.");
     }
     finally{
       setLoading(false);

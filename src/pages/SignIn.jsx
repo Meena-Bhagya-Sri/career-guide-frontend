@@ -24,57 +24,49 @@ export default function SignIn() {
     navigate("/signup");
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
 
-    // Admin redirect
-    if (role === "admin") {
-      navigate("/admin");
-      return;
-    }
 
-    try {
-      setLoading(true);
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-      const response = await plainAPI.post("/auth/login", {
-  email,
-  password,
-  role,
-});
+  try {
+    setLoading(true);
 
-      const data = response.data; 
-
-      if (!response.ok) {
-        toast.error("User not found. Please sign up!");
-        return;
+      const response = await plainAPI.post(
+      "/auth/login", // ⚠️ change to /api/auth/login if needed
+      {
+        email,
+        password,
+        role,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json", // ✅ THIS FIXES 415
+        },
       }
+    );
 
-      // ✅ Store tokens
-      localStorage.setItem("access_token", data.access_token);
-      localStorage.setItem("refresh_token", data.refresh_token);
+    const data = response.data;
 
-      scheduleSilentRefresh();
-      setIsAuth(true);
+    // ✅ Store tokens
+    localStorage.setItem("access_token", data.access_token);
+    localStorage.setItem("refresh_token", data.refresh_token);
 
-      // Store user
-      localStorage.setItem("user", JSON.stringify(data.user));
+    // ✅ Store user
+    localStorage.setItem("user", JSON.stringify(data.user));
 
-      // Decode role
-      const decoded = jwtDecode(data.access_token);
-      const userRole = decoded.role;
+    setIsAuth(true);
 
-      toast.success("Login successful!");
+    toast.success("Login successful!");
+    navigate("/app/career/ai-agents");
 
-      // Redirect
-      navigate("/app/career/ai-agents");
-
-    } catch (e) {
-      toast.error("Server error.");
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (err) {
+    console.error(err);
+    toast.error(err.response?.data?.message || "Login failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="auth-fullscreen">

@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-const plainAPI = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
-});
-
-// Request interceptor for API (access token)
+// 🔹 Attach access token
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("access_token");
   if (token) {
@@ -17,36 +16,47 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// Response interceptor
+// 🔹 Handle token refresh
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
+    // If access token expired
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       const refreshToken = localStorage.getItem("refresh_token");
+
       if (!refreshToken) {
         localStorage.clear();
-        window.location.href = "/admin/login";
+        window.location.href = "/signin";
         return Promise.reject(error);
       }
 
       try {
-        const res = await plainAPI.post("/auth/refresh", {}, {
-          headers: { Authorization: `Bearer ${refreshToken}` }
-        });
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auth/refresh`, // ⚠️ adjust if needed
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${refreshToken}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const newAccessToken = res.data.access_token;
+
         localStorage.setItem("access_token", newAccessToken);
 
+        // retry original request
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return API(originalRequest);
 
       } catch (err) {
         localStorage.clear();
-        window.location.href = "/admin/login";
+        window.location.href = "/signin";
         return Promise.reject(err);
       }
     }
@@ -55,4 +65,4 @@ API.interceptors.response.use(
   }
 );
 
-export { API, plainAPI };
+export default API;
