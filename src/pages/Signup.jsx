@@ -7,7 +7,7 @@ import {toast} from "react-toastify";
 import PasswordStrength from "../components/PasswordStrength";
 import bgImage from "../assets/image 1.png";
 import "../styles/Auth.css";
-
+import { plainAPI } from "../api/axios";
 export default function SignUp() {
 
   const navigate = useNavigate();

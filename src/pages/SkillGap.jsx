@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import API from "../api/axios";
+import { API } from "../api/axios";
 import "../styles/skillgap.css";
 function SkillGap() {
 

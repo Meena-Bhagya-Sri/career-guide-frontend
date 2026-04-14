@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { scheduleSilentRefresh } from "../utils/silentRefresh";
 import "../styles/Auth.css";
 import bgImage from "../assets/image 1.png";
-import plainAPI from "axios";
+import { plainAPI } from "../api/axios"; 
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +18,7 @@ export default function SignIn() {
 
   const { setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
-
+ console.log(import.meta.env.VITE_API_URL);
   // ✅ Redirect to Signup
   const handleSignupRedirect = () => {
     navigate("/signup");
@@ -37,15 +37,12 @@ export default function SignIn() {
       setLoading(true);
 
       const response = await plainAPI.post("/auth/login", {
-     
-        body: JSON.stringify({
-          email,
-          password,
-          role,
-        }),
-      });
+  email,
+  password,
+  role,
+});
 
-      const data = await response.json();
+      const data = response.data; 
 
       if (!response.ok) {
         toast.error("User not found. Please sign up!");

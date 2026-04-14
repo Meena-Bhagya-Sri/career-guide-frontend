@@ -55,4 +55,4 @@ API.interceptors.response.use(
   }
 );
 
-export default API;
+export { API, plainAPI };

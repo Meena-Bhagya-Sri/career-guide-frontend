@@ -4,7 +4,7 @@ import bg from "../assets/login_copy.png";
 import "../styles/AdminLogin.css";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
-
+import { plainAPI } from "../api/axios";
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

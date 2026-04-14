@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../api/axios";
+import { API } from "../api/axios";
 import "../styles/Layout.css";
 import {toast} from "react-toastify";
 function CareerPrediction() {

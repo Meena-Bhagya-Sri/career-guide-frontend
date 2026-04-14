@@ -1,3 +1,4 @@
+// import  API  from "../api/axios";
 export async function refreshAccessToken() {
 
   const refreshToken = localStorage.getItem("refresh_token");
@@ -7,7 +8,7 @@ export async function refreshAccessToken() {
 
   try {
 
-    const response = await API.post(`${import.meta.env.VITE_API_URL}/auth/refresh`, {
+    const response = await API.post("/auth/refresh", {
       
     });
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 import "./SkillsSection.css";
 import { toast } from "react-toastify";
-import API from "../api/axios";
+import { API } from "../api/axios";
 
 function SkillsSection() {
   const [skills, setSkills] = useState([]);
